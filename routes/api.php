@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\Api\LoginController;
+use App\Http\Controllers\Auth\Api\RegisterController;
+use App\Domain\BookStore\Controllers\BookStoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('auth')->group(function () {
+
+    Route::get('/user', [LoginController::class, 'user'])->middleware('auth:sanctum');
+
+    Route::post('/login', [LoginController::class, 'login']);
+
+    Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum');
+
+    Route::post('/register', [RegisterController::class, 'reg']);
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+
+    /* Book Store */
+    Route::get('/list-book', [BookStoreController::class, 'index']);
+
+    Route::post('/create-book', [BookStoreController::class, 'store']);
+
+    Route::put('/update-book/{book_id}', [BookStoreController::class, 'update']);
+
+    Route::delete('/delete-book/{book_id}', [BookStoreController::class, 'destroy']);
 });
