@@ -1,0 +1,10 @@
+### Get All Books
+GET http://sas-backend-task.com.test/api/list-book
+Accept: application/json
+Authorization: Bearer 7|RTaUFRZBuBOrsxWDgu3kxORAZ5RJ7hLOR1xmr2lW
+
+
+### Example using query builder filter
+GET http://sas-backend-task.com.test/api/list-book?filter[book]=Book
+Accept: application/json
+Authorization: Bearer 7|RTaUFRZBuBOrsxWDgu3kxORAZ5RJ7hLOR1xmr2lW

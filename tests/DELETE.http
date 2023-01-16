@@ -1,0 +1,5 @@
+### Delete Book
+DELETE http://sas-backend-task.com.test/api/delete-book/10
+content-type: application/json
+Accept: application/json
+Authorization: Bearer 7|RTaUFRZBuBOrsxWDgu3kxORAZ5RJ7hLOR1xmr2lW

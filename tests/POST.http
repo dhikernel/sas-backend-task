@@ -1,0 +1,11 @@
+### Create Book
+POST http://sas-backend-task.com.test/api/create-book
+content-type: application/json
+Accept: application/json
+Authorization: Bearer 7|RTaUFRZBuBOrsxWDgu3kxORAZ5RJ7hLOR1xmr2lW
+
+{
+  "name": "Fast an Furious 2",
+  "isbn": "158743",
+  "value": "57.80"
+}
