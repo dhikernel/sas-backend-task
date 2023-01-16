@@ -102,3 +102,9 @@ cp .env.example .env
 php artisan migrate
 ```
 6. Inside the tests directory are the files GET.http, POST.http, PUT.http, DELETE.http. To make requests, you must have the VsCode Rest Client plugin installed. Alternatively, PostMan or Insomnia can be used.
+
+7. run laravel embedded server
+
+```shell
+php artisan serve
+```
