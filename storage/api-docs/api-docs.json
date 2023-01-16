@@ -1,0 +1,185 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Book Store - API reference",
+        "description": "Documentation of each EndPoint for integration.",
+        "contact": {
+            "email": "dhipereira21@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/list-book": {
+            "get": {
+                "tags": [
+                    "Book Store - List Books"
+                ],
+                "summary": "List All Books",
+                "description": "List All Books",
+                "operationId": "2b357ba185f45499ab928e86ca06b1b3",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "default": {
+                        "description": "Unidentified error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/create-book": {
+            "post": {
+                "tags": [
+                    "Book Store - Create Books"
+                ],
+                "summary": "Create Record",
+                "description": "Create Record",
+                "operationId": "9bac38c18b2f18f800c0be4be330535b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "book_item_id": 1,
+                                    "name": "Lord of the rings",
+                                    "isbn": 102030,
+                                    "value": "57.90"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success"
+                    },
+                    "default": {
+                        "description": "Unidentified error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/update-book/{id}": {
+            "put": {
+                "tags": [
+                    "Book Store - Update Books"
+                ],
+                "summary": "Create Record",
+                "description": "Create Record",
+                "operationId": "c1768bd11827b541d429b1a52679b5ec",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "name": "Lord of the rings",
+                                    "isbn": 102030,
+                                    "value": "57.90"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "default": {
+                        "description": "Unidentified error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/delete-book/{id}": {
+            "delete": {
+                "tags": [
+                    "Book Store - Delete Books"
+                ],
+                "summary": "Delete Record",
+                "description": "Delete Record",
+                "operationId": "9011289822467eaa97c7b827099291a6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "default": {
+                        "description": "Unidentified error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BookStore": {
+                "properties": {
+                    "name": {
+                        "description": "Book Name",
+                        "type": "string"
+                    },
+                    "isbn": {
+                        "description": "integer",
+                        "type": "integer"
+                    },
+                    "value": {
+                        "description": "Value",
+                        "type": "decimal"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearer": {
+                "type": "http",
+                "description": "Authorization token obtained from logging in.",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
