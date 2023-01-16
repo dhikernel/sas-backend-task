@@ -29,32 +29,12 @@ class BookStoreController extends Controller
 
     /**
      * @OA\Get(
-     * tags={"BookStore- Create Book"},
+     * tags={"Book Store - List Books"},
      * path="/api/list-book",
      * summary="List All Books",
      * description="List All Books",
      * security={
      * {"bearer":{}}},
-     * @OA\Parameter(
-     * description="User",
-     * in="header",
-     * name="user",
-     * required=true,
-     * @OA\Schema(
-     * type="integer",
-     * format="int64",
-     * )
-     * ),
-     * @OA\Parameter(
-     * description="Company",
-     * in="header",
-     * name="company",
-     * required=true,
-     * @OA\Schema(
-     * type="string",
-     * format="int64"
-     * )
-     * ),
      * @OA\Response(
      * response=200,
      * description="Success"
@@ -65,20 +45,111 @@ class BookStoreController extends Controller
      * )
      * )
      */
+
     public function index(Request $request)
     {
         return $this->repository->listBooks($request->all());
     }
 
+    /**
+     * @OA\Post(
+     * tags={"Book Store - Create Books"},
+     * path="/api/create-book",
+     * summary="Create Record",
+     * description="Create Record",
+     * security={
+     * {"bearer":{}}},
+     * @OA\RequestBody(
+     * required = true,
+     * @OA\MediaType(
+     * mediaType="application/json",
+     * @OA\Schema(
+     * example={"book_item_id":1,"name":"Lord of the rings","isbn":102030,"value":"57.90"},
+     * )
+     * )
+     * ),
+     * @OA\Response(
+     * response=201,
+     * description="Success"
+     * ),
+     * @OA\Response(
+     * response="default",
+     * description="Unidentified error"
+     * )
+     * )
+     */
     public function store(Request $request)
     {
         return $this->repository->createBooks($request->all());
     }
 
+    /**
+     * @OA\Put(
+     * tags={"Book Store - Update Books"},
+     * path="/api/update-book/{id}",
+     * summary="Create Record",
+     * description="Create Record",
+     * security={
+     * {"bearer": {}}},
+     * @OA\Parameter(
+     * name="id",
+     * description="Id",
+     * required=true,
+     * in="path",
+     * @OA\Schema(
+     * type="integer"
+     * )
+     * ),
+     * @OA\RequestBody(
+     * @OA\MediaType(
+     * mediaType="application/json",
+     * @OA\Schema(
+     * example={"name":"Lord of the rings","isbn":102030,"value":"57.90"},
+     * )
+     * )
+     * ),
+     * @OA\Response(
+     * response=200,
+     * description="Success",
+     * ),
+     * @OA\Response(
+     * response="default",
+     * description="Unidentified error"
+     * )
+     * )
+     */
+
     public function update(Request $request, int $id)
     {
         return $this->repository->updateOrNewBook($request->all(), $id);
     }
+    /**
+     * @OA\Delete (
+     * tags={"Book Store - Delete Books"},
+     * path="/api/delete-book/{id}",
+     * summary="Delete Record",
+     * description="Delete Record",
+     * security={
+     * {"bearer": {}}},
+     * @OA\Parameter(
+     * name="id",
+     * description="Id",
+     * required=true,
+     * in="path",
+     * @OA\Schema(
+     * type="integer"
+     * )
+     * ),
+     * @OA\Response(
+     * response=204,
+     * description="Success",
+     * ),
+     * @OA\Response(
+     * response="default",
+     * description="Unidentified error"
+     * )
+     * )
+     */
 
     public function destroy(int $id)
     {
