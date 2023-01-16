@@ -1,0 +1,11 @@
+### Update Book
+PUT http://sas-backend-task.com.test/api/update-book/9
+content-type: application/json
+Accept: application/json
+Authorization: Bearer 7|RTaUFRZBuBOrsxWDgu3kxORAZ5RJ7hLOR1xmr2lW
+
+{
+  "name": "Fast an Furious 2",
+  "isbn": "302010",
+  "value": "45.00"
+}
