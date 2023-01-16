@@ -76,11 +76,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 git clone git@github.com:dhikernel/sas-backend-task.git
 ```
 2. If you are going to use Docker, install docker, create a virtual host, configure your hosts file, you can do these settings if you are going to use apache as well.
-You can run the project using the command:
-
-```shell
-php artisan serve
-```
 
 3.  Install composer
 
