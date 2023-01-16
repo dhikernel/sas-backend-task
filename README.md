@@ -64,3 +64,41 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+# CRUD SAS BACKEND IN LARAVEL 9
+
+## Installation
+
+1.  Clone the project on your machine
+
+```shell
+git clone git@github.com:dhikernel/sas-backend-task.git
+```
+2. If you are going to use Docker, install docker, create a virtual host, configure your hosts file, you can do these settings if you are going to use apache as well.
+You can run the project using the command:
+
+```shell
+php artisan serve
+```
+
+3.  Install composer
+
+composer install. If you still don't have composer installed, just go to the site:
+```shell
+https://getcomposer.org
+```
+
+4.  Configure your file .env execute the command to create a copy of your .env.example para .env
+```shell
+cp .env.example .env
+```
+// Configure environment variables according to your database.
+
+
+5. Migrate the tables to your database using the command
+
+```shell
+php artisan migrate
+```
+6. Inside the tests directory are the files GET.http, POST.http, PUT.http, DELETE.http. To make requests, you must have the VsCode Rest Client plugin installed. Alternatively, PostMan or Insomnia can be used.
